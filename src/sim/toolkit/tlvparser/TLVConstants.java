@@ -1,0 +1,73 @@
+package sim.toolkit.tlvparser;
+
+public interface TLVConstants {
+	
+    public static final byte TAG_SET_CR = (byte)0x80;
+	public static final byte COMMAND_DETAILS_TAG  = (byte)0x01;
+	public static final byte DEVICE_IDENTITY_TAG = (byte)0x02;
+	public static final byte RESULT_TAG = (byte)0x03;
+	public static final byte DURATION_TAG = (byte)0x04;
+	public static final byte ALPHA_IDENTIFIER_TAG = (byte)0x05;
+	public static final byte ADDRESS_TAG = (byte)0x06;
+	public static final byte CAPABILITY_CONFIGURATION_PARAMETERS_TAG =(byte)0x07;
+	public static final byte SUBADDRESS_TAG =(byte)0x08;
+	public static final byte SS_STRING_TAG =(byte)0x09;
+	public static final byte USSD_STRING_TAG =(byte)0x0A;
+	public static final byte SMS_TPDU_TAG =(byte)0x0B;
+	public static final byte CELL_BROADCAST_PAGE_TAG =(byte)0x0C;
+	public static final byte TEXT_STRING_TAG =(byte)0x0D;
+	public static final byte TONE_TAG =(byte)0x0E;
+	public static final byte ITEM_TAG =(byte)0x0F;
+	public static final byte ITEM_IDENTIFIER_TAG =(byte)0x10;
+	public static final byte RESPONSE_LENGTH_TAG =(byte)0x11;
+	public static final byte FILE_LIST_TAG =(byte)0x12;
+	public static final byte LOCATION_INFORMATION_TAG =(byte)0x13;
+	public static final byte IMEI_TAG =(byte)0x14;
+	public static final byte HELP_REQUEST_TAG =(byte)0x15;
+	public static final byte NETWORK_MEASUREMENT_RESULTS_TAG =(byte)0x16;
+	public static final byte DEFAULT_TEXT_TAG =(byte)0x17;
+	public static final byte ITEMS_NEXT_ACTION_INDICATOR_TAG =(byte)0x18;
+	public static final byte EVENT_LIST_TAG =(byte)0x19;
+	public static final byte CAUSE_TAG =(byte)0x1A;
+	public static final byte LOCATION_STATUS_TAG =(byte)0x1B;
+	public static final byte TRANSACTION_IDENTIFIER_TAG =(byte)0x1C;
+	public static final byte BCCH_CHANNEL_LIST_TAG =(byte)0x1D;
+	public static final byte ICON_IDENTIFIER_TAG =(byte)0x1E;
+	public static final byte ITEM_ICON_IDENTIFIER_LIST_TAG =(byte)0x1F;
+	public static final byte CARD_READER_STATUS_TAG =(byte)0x20;
+	public static final byte CARD_ATR_TAG =(byte)0x21;
+	public static final byte C_APDU_TAG =(byte)0x22;
+	public static final byte R_APDU_TAG =(byte)0x23;
+	public static final byte TIMER_IDENTIFIER_TAG =(byte)0x24;
+	public static final byte TIMER_VALUE_TAG =(byte)0x25;
+	public static final byte DATE_TIME_AND_TIME_ZONE_TAG =(byte)0x26; 	
+        
+        //by me
+        public static final byte IMMEDIATE_RESPONSE_TAG =(byte)0x2B; 	
+	public static final byte TEXT_ATTRIBUTE_TAG = (byte)0x50;
+        public static final byte FRAME_IDENTIFIER_TAG=0x68;
+        public static final byte ITEM_TEXT_ATTRIBUTE_LIST_TAG = 0x51;
+        public static final byte AID_TAG=0x2F;
+        public static final byte AT_COMMAND_TAG = 0x28;
+        public static final byte DTMF_STRING_TAG = 0x2C;
+        public static final byte LANGUAGE_TAG = 0x2D;
+        public static final byte BROWSER_IDENTITY_TAG = 0x30;
+        public static final byte URL_TAG = 0x31;
+        public static final byte BEARER_TAG = 0x32;
+        public static final byte PROVISIONING_FILE_TAG = 0x33;
+        public static final byte NETWORK_ACCESS_NAME_TAG = 0x2D;
+        public static final byte BUFFER_SIZE_TAG = 0x39;
+        public static final byte OTHER_ADDRESS_TAG = 0x3E;
+        public static final byte UICC_TRANSPORT_LEVEL= 0x3C;
+        public static final byte CHANNEL_DATA_TAG = 0x36;
+        public static final byte CHANNEL_DATA_LENGTH_TAG = 0x37;
+        public static final byte DEVICE_FILTER_TAG = 0x42;
+        public static final byte SERVICE_SEARCH_TAG = 0x43;
+        public static final byte ATTRIBUTE_INFO_TAG = 0x44;
+        public static final byte SERVICE_RECORD_TAG = 0x43;
+        public static final byte FRAME_LAYOUT_TAG = 0x66;
+        public static final byte MULTIMEDIA_MESSAGE_REFERENCE_TAG = 0x6A;
+        public static final byte MULTIMEDIA_CONTENT_IDENTIFIER_TAG = 0x6E;
+        public static final byte MULTIMEDIA_MESSAGE_IDENTIFIER_TAG = 0x6B;
+        public static final byte ACTIVATE_DESCRIPTOR_TAG = 0x7B;
+}
