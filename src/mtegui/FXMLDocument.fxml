@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mtegui.MTEGUIController">
+   <children>
+      <SplitPane dividerPositions="0.31954887218045114" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+        <items>
+          <AnchorPane fx:id="screenPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="307.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <ImageView fitHeight="407.0" fitWidth="252.0" pickOnBounds="true" smooth="false">
+                     <image>
+                        <Image url="@phone.jpeg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="226.0" fitWidth="252.0" layoutX="-1.0" layoutY="375.0" pickOnBounds="true" smooth="false">
+                     <image>
+                        <Image url="@keypad.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="powerOnButton" cacheShape="false" centerShape="false" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" graphicTextGap="0.0" layoutX="213.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="23.0" scaleShape="false" style="-fx-background-color: #000000;">
+                     <effect>
+                        <ImageInput>
+                           <source>
+                              <Image url="file:/E:/MTEGUI/MTEGUI/src/mtegui/poweron.png" />
+                           </source>
+                        </ImageInput>
+                     </effect>
+                  </Button>
+                  <Button layoutX="10.0" layoutY="344.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="31.0">
+                     <effect>
+                        <ImageInput>
+                           <source>
+                              <Image url="file:/E:/MTE/MTE/mobile-simulator/src/mtegui/call.png" />
+                           </source>
+                        </ImageInput>
+                     </effect>
+                     <opaqueInsets>
+                        <Insets right="1.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <Button layoutX="211.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0">
+                     <effect>
+                        <ImageInput>
+                           <source>
+                              <Image url="file:/E:/MTE/MTE/mobile-simulator/src/mtegui/Disconnect.png" />
+                           </source>
+                        </ImageInput>
+                     </effect>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Separator layoutX="7.0" layoutY="342.0" prefHeight="2.0" prefWidth="238.0" />
+                  <Button layoutX="146.0" layoutY="344.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="31.0">
+                     <effect>
+                        <ImageInput>
+                           <source>
+                              <Image url="file:/E:/MTE/MTE/mobile-simulator/src/mtegui/home.jpg" />
+                           </source>
+                        </ImageInput>
+                     </effect>
+                  </Button>
+                  <Button layoutX="76.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0">
+                     <effect>
+                        <ImageInput>
+                           <source>
+                              <Image url="file:/E:/MTE/MTE/mobile-simulator/src/mtegui/cancel.jpg" />
+                           </source>
+                        </ImageInput>
+                     </effect>
+                     <opaqueInsets>
+                        <Insets right="1.0" />
+                     </opaqueInsets>
+                  </Button>
+                  <PasswordField fx:id="passwordField" layoutX="51.0" layoutY="267.0" />
+                  <TextArea fx:id="inputText" layoutX="14.0" layoutY="89.0" prefHeight="170.0" prefWidth="223.0" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextArea>
+                  <Label fx:id="appList" layoutX="58.0" layoutY="50.0" prefHeight="17.0" prefWidth="130.0" text="Application List" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" layoutX="-1.0" layoutY="-21.0" orientation="VERTICAL" prefHeight="619.0" prefWidth="540.0">
+                    <items>
+                      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="538.0">
+                           <children>
+                              <MenuBar layoutX="-1.0" layoutY="19.0" prefHeight="25.0" prefWidth="163.0">
+                                <menus>
+                                  <Menu mnemonicParsing="false" text="File">
+                                    <items>
+                                      <MenuItem mnemonicParsing="false" text="Close" />
+                                    </items>
+                                  </Menu>
+                                  <Menu mnemonicParsing="false" text="Edit">
+                                    <items>
+                                      <MenuItem mnemonicParsing="false" text="Delete" />
+                                    </items>
+                                  </Menu>
+                                  <Menu mnemonicParsing="false" text="Help">
+                                    <items>
+                                      <MenuItem mnemonicParsing="false" text="About" />
+                                    </items>
+                                  </Menu>
+                                </menus>
+                              </MenuBar>
+                              <ComboBox fx:id="cardReaderList" layoutX="164.0" layoutY="19.0" onAction="#handleButtonAction" onMouseClicked="#handleDropDownSelection" prefHeight="25.0" prefWidth="243.0" promptText="Select Card Reader">
+                              </ComboBox>
+                              <ComboBox fx:id="gsmOpMode" layoutX="408.0" layoutY="19.0" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="130.0" promptText="Select Op Mode">
+                                 <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="SIM" />
+                                        <String fx:value="USIM" />
+                                        <String fx:value="ISIM" />
+                                    </FXCollections>
+                                 </items>
+                              </ComboBox>
+                              <TreeView fx:id="logTree" layoutY="45.0" prefHeight="407.0" prefWidth="538.0" />
+                           </children>
+                           <rotationAxis>
+                              <Point3D />
+                           </rotationAxis>
+                        </AnchorPane>
+                      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="165.0" prefWidth="538.0">
+                           <children>
+                              <TitledPane animated="false" centerShape="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="538.0" text="APDU PANE">
+                                 <content>
+                                    <VBox depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="150.0" prefWidth="550.0" snapToPixel="false">
+                                       <children>
+                                          <TextArea prefHeight="111.0" prefWidth="516.0" />
+                                          <ToolBar prefHeight="40.0" prefWidth="200.0">
+                                            <items>
+                                              <Button mnemonicParsing="false" text="Execute" />
+                                                <Button mnemonicParsing="false" text="Clear APDU Pane" />
+                                            </items>
+                                          </ToolBar>
+                                       </children>
+                                       <!--<cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>-->
+                                    </VBox>
+                                 </content>
+                              </TitledPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

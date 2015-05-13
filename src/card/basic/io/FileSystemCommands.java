@@ -33,15 +33,24 @@ public class FileSystemCommands extends Command
      */
     public String selectFile(String fileId)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
-        Command.INS = "A0";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
+        Command.INS = "A4";
         Command.P1="00";
         Command.P2="00";        
         int trLength = fileId.length()/2;
         Command.P3 = convertToHextString(trLength);
         Command.DATA = fileId;
-        validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        //System.out.println(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
+        if(validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA))
+        {
+            return executeCommand();
+        }
+        else
+        {
+            return null;
+        }
+       
+        
     }
     
     /**
@@ -52,15 +61,16 @@ public class FileSystemCommands extends Command
      */
     public String readBinary(int startOffset, int length)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "B0";
         int temp = startOffset/255;
         int temp1 = startOffset%255;
         Command.P1=convertToHextString(temp);
         Command.P2=convertToHextString(temp1);
         Command.P3= convertToHextString(length);
+        Command.DATA ="";
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     /**
@@ -72,13 +82,13 @@ public class FileSystemCommands extends Command
      */
     public String readReacord(int mode, int recordNumber, int recordLength)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "B2";
         Command.P1=convertToHextString(recordNumber);
         Command.P2=convertToHextString(mode);
         Command.P3= convertToHextString(recordLength);
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     /**
@@ -91,14 +101,14 @@ public class FileSystemCommands extends Command
      */
     public String updateRecord(int mode, int recordNumber, int recordLength, String recordData)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "DC";
         Command.P1=convertToHextString(recordNumber);
         Command.P2=convertToHextString(mode);
         Command.P3= convertToHextString(recordLength);
         Command.DATA = recordData;
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     /**
@@ -110,7 +120,7 @@ public class FileSystemCommands extends Command
      */
     public String updateBinary(int startOffset, int length, String data)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "D6";
         int temp = startOffset/255;
         int temp1 = startOffset%255;
@@ -118,7 +128,7 @@ public class FileSystemCommands extends Command
         Command.P2=convertToHextString(temp1);
         Command.P3= convertToHextString(length);
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     /**
@@ -128,13 +138,13 @@ public class FileSystemCommands extends Command
      */
     public String status(int length)
     {   
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "F2";
         Command.P1="00";
         Command.P2="00";
         Command.P3= convertToHextString(length);
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
      
     /**
@@ -146,7 +156,7 @@ public class FileSystemCommands extends Command
      */
     public String seek(String typeMode, int patternLength, String pattern)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "A2";
         Command.P1="00";
         Command.P2=typeMode;
@@ -154,7 +164,7 @@ public class FileSystemCommands extends Command
         Command.DATA = pattern;
         Command.P3= convertToHextString(trLength);
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     /**
@@ -165,14 +175,14 @@ public class FileSystemCommands extends Command
      */
     public String increase(int length, String data)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "32";
         Command.P1="00";
         Command.P2="00";
         Command.P3= convertToHextString(length);
         Command.DATA = data;
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     /**
@@ -182,34 +192,35 @@ public class FileSystemCommands extends Command
      */
     public String getResponse(int length)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "C0";
         Command.P1="00";
         Command.P2="00";
         Command.P3= convertToHextString(length);
-        validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        Command.DATA="";
+        validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3);
+        return executeCommand();
     }
     
     public String rehabilitate()
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "44";
         Command.P1="00";
         Command.P2="00";
         Command.P3="00";
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     public String Stinvalidate()
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "04";
         Command.P1="00";
         Command.P2="00";
         Command.P3="00";
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
 }

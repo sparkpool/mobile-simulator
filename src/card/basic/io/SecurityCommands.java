@@ -32,7 +32,7 @@ public class SecurityCommands extends Command{
         Command.DATA = pinValue;
        
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     public String changeCHV(int chvNumber, String oldCHV, String newCHV)
@@ -44,7 +44,7 @@ public class SecurityCommands extends Command{
         Command.P3= "10";
         Command.DATA = oldCHV+newCHV;
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     public String disableCHV1(String chv1)
@@ -56,7 +56,7 @@ public class SecurityCommands extends Command{
         Command.P3= "08";
         Command.DATA = chv1;
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     public String enableCHV1(String chv1)
@@ -68,6 +68,6 @@ public class SecurityCommands extends Command{
         Command.P3= "08";
         Command.DATA = chv1;
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
 }

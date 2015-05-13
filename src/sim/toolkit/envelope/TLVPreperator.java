@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -21,35 +21,62 @@ public class TLVPreperator {
         return instance;
     }
     
-    public String prepareAddTLV(String tag, String tonNpi, String dialingString)
+    /**
+     * This method used to prepare the Address TLv based on the provided parameters
+     * @param tag: Address Tag Value
+     * @param tonNpi: TON/NPI of the address
+     * @param dialingString: Dialing number including Country Code(CC) and mobile number
+     * @return : Return the complete TLV
+     */
+    public String prepareAddressTLV(byte tag, String tonNpi, String dialingString)
     {
-        return null;
+        StringBuilder addressTLV =new StringBuilder(tonNpi);
+        if(dialingString.length()%2==1)
+        {
+            dialingString = dialingString+"F";
+        }
+        for(int i=0; i<dialingString.length();i=i+2)
+        {
+            addressTLV.append(dialingString.charAt(i+1)+dialingString.charAt(i));                    
+        }
+        
+        return convertTagToString(tag)+getTLVLength(addressTLV.length()/2)+addressTLV;
     }
     
-    public String prepareAIDTLV(String tag, String AlphaIdString)
+    public String prepareAlphaIDTLV(byte tag, String AlphaIdString)
     {
-        return null;
+       return null;
     }
     
-    public String prepareSubAddTLV(String tag, String subAddress)
+    public String prepareSubAddTLV(byte tag, String subAddress)
     {
-        return null;
+        StringBuilder addressTLV =new StringBuilder();
+        if(subAddress.length()%2==1)
+        {
+            subAddress = subAddress+"F";
+        }
+        for(int i=0; i<subAddress.length();i=i+2)
+        {
+            addressTLV.append(subAddress.charAt(i+1)+subAddress.charAt(i));                    
+        }
+        
+        return convertTagToString(tag)+getTLVLength(addressTLV.length()/2)+addressTLV;
     }
     
-    public String prepareCCPTLV(String tag, String ccp)
+    public String prepareCCPTLV(byte tag, String ccp)
     {
-        return null;
+        return convertTagToString(tag)+getTLVLength(ccp.length()/2)+ccp;
     }
     
-    public String prepareCommandDetailTLV(String tag, String commandNumber, String toc, String cq)
+    public String prepareCommandDetailTLV(byte tag, String commandNumber, String toc, String cq)
     {
-        return null;
+        return convertTagToString(tag)+"03"+commandNumber+toc+cq;
     }
     
     
-    public String prepareDeviceIdentitesTLV(String tag, String src, String dest)
+    public String prepareDeviceIdentitesTLV(byte tag, String src, String dest)
     {
-        return null;
+        return convertTagToString(tag)+"02"+src+dest;
     }
     
     
@@ -58,7 +85,7 @@ public class TLVPreperator {
         return null;
     }
     
-    public String prepareItemIdTLV(String tag, String itemId)
+    public String prepareItemIdTLV(byte tag, String itemId)
     {
         return null;
     }
@@ -83,22 +110,22 @@ public class TLVPreperator {
         return null;
     }
     
-    public String prepareEventListTLV(String tag, String eventList)
+    public String prepareEventListTLV(byte tag, String eventList)
     {
         return null;
     }
     
-    public String prepareCauseTLV(String tag, String cause)
+    public String prepareCauseTLV(byte tag, String cause)
     {
         return null;
     }
     
-    public String prepareLocationStatusTLV(String tag, String locationStatus)
+    public String prepareLocationStatusTLV(byte tag, String locationStatus)
     {
         return null;
     }
    
-    public String prepareTransactionIdTLV(String tag, String transactionId)
+    public String prepareTransactionIdTLV(byte tag, String transactionId)
     {
         return null;
     }
@@ -108,7 +135,7 @@ public class TLVPreperator {
         return null;
     }
     
-    public String prepareTimerId(String tag, String timerId)
+    public String prepareTimerId(byte tag, int timerId)
     {
         return null;
     }
@@ -123,7 +150,7 @@ public class TLVPreperator {
         return null;
     }
     
-    public String prepareLanguageTLV(String tag, String languageCode)
+    public String prepareLanguageTLV(byte tag, String languageCode)
     {
         return null;
     }
@@ -133,7 +160,7 @@ public class TLVPreperator {
         return null;
     }
     
-    public String prepareAccessTechTLV(String tag, String accessTech)
+    public String prepareAccessTechTLV(byte tag, String accessTech)
     {
         return null;
     }
@@ -151,5 +178,39 @@ public class TLVPreperator {
     public String prepareIMEISVTLV()
     {
         return null;
+    }
+
+    public String prepareHelpRequestTLV(byte HELP_REQUEST_TAG) {
+        return null;
+    }
+    
+    public String prepareBroswerTerminationCause(byte tag, String cause)
+    {
+        return null;
+    }
+
+    public String prepareNetworSearchModeTLV(byte tag, String networkSearchMode) 
+    {
+        return null;
+    }
+    
+    public String prepareBrowsingStatusTLV(byte tag, String status)
+    {
+        return null;
+    }
+    
+    private String getTLVLength(int length)
+    {
+        StringBuilder len = new StringBuilder();
+        if(length>127)
+        {
+            len.append("81");
+        }
+        return len.append(Integer.toHexString(length).length() == 1 ?"0"+Integer.toHexString(length).toUpperCase():Integer.toHexString(length).toUpperCase()).toString();
+    }
+    
+    private String convertTagToString(byte tag)
+    {
+        return Integer.toHexString(tag).length() == 1 ?"0"+Integer.toHexString(tag).toUpperCase():Integer.toHexString(tag).toUpperCase();
     }
 }

@@ -5,17 +5,16 @@
  */
 package card.basic.io;
 
+import javax.xml.bind.DatatypeConverter;
+
 /**
  *
  * @author user
  */
 class Command 
 {
-    private static Command commandInstance;
-    
-    private static BasicIO basicIOInstance;
-    
-    static String operationMode;
+    private static BasicIO basicIOInstance = BasicIO.getBasicIOInstance();;
+    public static String operationMode;
     public static String CLS;
     public static String INS;
     public static String P1;
@@ -27,20 +26,7 @@ class Command
      * This String object store the previously successfully executed command
      */
     private String previousExecutedCommand;
-    /**
-     * This method used to get the singleton instance of the Command class 
- This instance will expose the API to communicate the card
-     * @return : Singleton instance of the Command class
-     */
-    static Command getCardCommInstance()
-    {
-        if(commandInstance == null)
-        {
-            basicIOInstance = BasicIO.getBasicIOInstance();
-            commandInstance = new Command();
-        }
-        return commandInstance;
-    }
+   
     
     void initCommand()
     {
@@ -54,14 +40,19 @@ class Command
     
     String executeCommand()
     {
-        return null;
+        String stringCommand=Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA;
+        byte [] cmd = convertToByteArray(stringCommand.toUpperCase());
+        //byte c[] = {(byte)0xA0, (byte)0xA4, 0x00, 0x00, 0x02, 0x3F, 0x00};
+        basicIOInstance.sendAPDU(cmd);
+        previousExecutedCommand = stringCommand;
+        return Integer.toHexString(basicIOInstance.getSW1SW2()).toUpperCase();
     }
     
     /**
      * This method used to get the previously executed command
      * @return 
      */
-    String getLastExecutedCommand()
+    public String getLastExecutedCommand()
     {
         return previousExecutedCommand;
     }
@@ -88,21 +79,51 @@ class Command
         return true;
     }
     
-    byte[] convertToByteArray(String command)
+    byte[] convertToByteArray(String data)
     {
-        return null;
+        byte b1=0;
+        byte b2=0;
+        byte cmd[] = new byte[data.length()/2];
+        int count =0;
+        for(int i=0; i< data.length(); i=i+2)
+        {
+             switch(data.charAt(i))
+             {
+                 case '0':case '1':case '2': case '3':case '4':case '5':case '6':
+                 case '7': case '8': case '9':
+                     b1=(byte)((byte)(data.charAt(i)&0x00FF)-0x0030);
+                     break;
+                     
+                 case 'A': case 'B': case 'C': case 'D': case 'E': case 'F':
+                     b1=(byte)((byte)(data.charAt(i)&0x00FF)-0x0037);
+                     break;
+             }
+             switch(data.charAt(i+1))
+             {
+                 case '0':case '1':case '2': case '3':case '4':case '5':case '6':
+                 case '7': case '8': case '9':
+                     b2=(byte)((byte)(data.charAt(i+1)&0x00FF)-0x0030);
+                     break;
+                     
+                 case 'A': case 'B': case 'C': case 'D': case 'E': case 'F':
+                     b2=(byte)((byte)(data.charAt(i+1)&0x00FF)-0x0037);
+                     break;
+             }
+             cmd[count++]=(byte)(b1<<4|b2);
+        }
+        return cmd;
     }
     
-    String getSW1()
+    public String getSW1()
     {
         return Integer.toHexString(basicIOInstance.getSW1()).length() == 1?"0"+Integer.toHexString(basicIOInstance.getSW1()).toUpperCase():Integer.toHexString(basicIOInstance.getSW1()).toUpperCase();
         
     }
-    String getSW2()
+    public String getSW2()
     {
-         return Integer.toHexString(basicIOInstance.getSW1()).length() == 1?"0"+Integer.toHexString(basicIOInstance.getSW2()).toUpperCase():Integer.toHexString(basicIOInstance.getSW1()).toUpperCase();
+         return Integer.toHexString(basicIOInstance.getSW2()).length() == 1?"0"+Integer.toHexString(basicIOInstance.getSW2()).toUpperCase():Integer.toHexString(basicIOInstance.getSW2()).toUpperCase();
     }
-    String getSW1SW2()
+    public String getSW1SW2()
     {
          return Integer.toHexString(basicIOInstance.getSW1SW2()).toUpperCase();
     }
@@ -116,5 +137,10 @@ class Command
     {
         return Integer.toHexString(decimal).length()==1?"0"+Integer.toHexString(decimal).toUpperCase():Integer.toHexString(decimal).toUpperCase();
         
+    }
+    
+    public String getResponseData()
+    {
+        return DatatypeConverter.printHexBinary(basicIOInstance.getResponseData());
     }
 }

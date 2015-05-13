@@ -10,3 +10,11 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/Mobile-Simulator/nbproject/private/
+/build/
+/nbproject/private/
+/DeploymentDemo/nbproject/private/
+/DeploymentDemo/build/
+/DeploymentDemo/dist/
+src/sim/toolkit/tlvparser/TLVConstants.java
+/dist/

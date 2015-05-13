@@ -39,7 +39,7 @@ public class ProvideLocalInfo extends BasicCommand{
         int temp=0;
         while(tlvStartOffset<tlvendOffset)
         {
-            tagValue = Byte.parseByte(command.substring(tlvStartOffset, tlvStartOffset+2), 16);
+            tagValue = (byte)Integer.parseInt(command.substring(tlvStartOffset, tlvStartOffset+2), 16);
             
             switch (tagValue) 
             {
@@ -61,5 +61,20 @@ public class ProvideLocalInfo extends BasicCommand{
             }
             tlvStartOffset+=temp;
         }
+    }
+    
+    public String prepareTerminalResponse()
+    {
+        StringBuilder terminalResponse = new StringBuilder();
+        trTLvList.clear();
+        terminalResponse.append(commandDetailTLV);
+        trTLvList.add(commandDetailTLV);
+        trTLvList.add("8202"+deviceIdentitiesTLV.substring(6, 8)+deviceIdentitiesTLV.substring(4, 6));
+        terminalResponse.append(trTLvList.get(1));
+        trTLvList.add("830100");
+        terminalResponse.append(trTLvList.get(2)); 
+        trTLvList.add("9307324F4523344556");
+        terminalResponse.append(trTLvList.get(3));
+        return terminalResponse.toString();
     }
 }

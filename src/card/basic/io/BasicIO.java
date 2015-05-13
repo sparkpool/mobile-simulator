@@ -12,12 +12,13 @@ import javax.smartcardio.CardTerminal;
 import javax.smartcardio.CommandAPDU;
 import javax.smartcardio.ResponseAPDU;
 import javax.smartcardio.TerminalFactory;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  *
  * @author user
  */
-class BasicIO {
+public class BasicIO {
     
     private static BasicIO basicIO;
     
@@ -27,7 +28,7 @@ class BasicIO {
     CardChannel channel;
     private ResponseAPDU respAPDU;
     
-    static BasicIO getBasicIOInstance()
+    public static BasicIO getBasicIOInstance()
     {
         if(basicIO == null)
         {
@@ -37,7 +38,7 @@ class BasicIO {
     }
 
     
-    int connetWithCard(int readerNumber)
+    public int connetWithCard(int readerNumber)
     {  
         try
         {
@@ -47,11 +48,12 @@ class BasicIO {
             
         }catch(CardException e)
         {
+            e.printStackTrace();
         }
         return 0;
     }
     
-    void disconnectwithCard(String cardReaderName)
+    public void disconnectwithCard(int cardReaderId)
     {
        try{
            card.disconnect(true);
@@ -63,6 +65,11 @@ class BasicIO {
     public byte[] getAtr()
     {
         return card.getATR().getBytes();
+    }
+    
+    public String getATR()
+    {
+        return DatatypeConverter.printHexBinary(card.getATR().getBytes());
     }
     
     public List<CardTerminal> getAvailableCardReader() throws CardException
@@ -93,10 +100,13 @@ class BasicIO {
     
     public void sendAPDU(byte[] command)
     {
-        try{
-            respAPDU = channel.transmit(new CommandAPDU(command));
-        }catch(CardException e)
+        try
         {
+            respAPDU = channel.transmit(new CommandAPDU(command));
+        }
+        catch(CardException e)
+        {
+            e.printStackTrace();
         }
     }
     

@@ -30,13 +30,14 @@ package card.basic.io;
      */
     public String fetch(int dataLength)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "12";
         Command.P1="00";
         Command.P2="00";
         Command.P3 = convertToHextString(dataLength);
+        Command.DATA ="";
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     
@@ -48,7 +49,7 @@ package card.basic.io;
      */
     public String terminalResponse(String terminalResponse)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "14";
         Command.P1="00";
         Command.P2="00";        
@@ -56,7 +57,7 @@ package card.basic.io;
         Command.P3 = convertToHextString(trLength);
         Command.DATA = terminalResponse;
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     /**
@@ -66,7 +67,7 @@ package card.basic.io;
      */
     public String terminalprofile(String teminalProfileData)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "10";
         Command.P1="00";
         Command.P2="00";        
@@ -74,7 +75,7 @@ package card.basic.io;
         Command.P3 = convertToHextString(trLength);
         Command.DATA = teminalProfileData;
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
     
     /**
@@ -84,7 +85,7 @@ package card.basic.io;
      */
     public String envelope(String envelopeData)
     {
-        Command.CLS = operationMode.equals("00")?"A0":"00";
+        Command.CLS = operationMode.equals("2G")?"A0":"00";
         Command.INS = "10";
         Command.P1="00";
         Command.P2="00";        
@@ -92,8 +93,6 @@ package card.basic.io;
         Command.P3 = convertToHextString(trLength);
         Command.DATA = envelopeData;
         validateCommand(Command.CLS+Command.INS+Command.P1+Command.P2+Command.P3+Command.DATA);
-        return Command.getCardCommInstance().executeCommand();
+        return executeCommand();
     }
-    
-    
 }
