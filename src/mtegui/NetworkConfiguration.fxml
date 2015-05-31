@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="471.0" prefWidth="657.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="mtegui.NetworkConfigurationController">
+   <children>
+      <Label layoutX="99.0" layoutY="35.0" prefHeight="17.0" prefWidth="459.0" text="Set the network related events and response so terminal can behave accordingly" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="84.0" prefHeight="17.0" prefWidth="161.0" text="Mobile Country  Code(MCC)" />
+      <TextField layoutX="198.0" layoutY="80.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label layoutX="346.0" layoutY="84.0" prefHeight="17.0" prefWidth="161.0" text="Mobile Network  Code(MNC)" />
+      <TextField layoutX="507.0" layoutY="80.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label layoutX="37.0" layoutY="143.0" prefHeight="17.0" prefWidth="149.0" text="Location Area Code (LAC)" />
+      <TextField layoutX="198.0" layoutY="139.0" prefHeight="25.0" prefWidth="119.0" />
+      <Label layoutX="346.0" layoutY="143.0" prefHeight="17.0" prefWidth="44.0" text="Cell ID" />
+      <TextField layoutX="390.0" layoutY="139.0" prefHeight="25.0" prefWidth="119.0" />
+      <TextField layoutX="517.0" layoutY="139.0" prefHeight="25.0" prefWidth="109.0" />
+      <Label layoutX="37.0" layoutY="263.0" prefHeight="17.0" prefWidth="89.0" text="Location Status" />
+      <ComboBox layoutX="136.0" layoutY="259.0" prefHeight="25.0" prefWidth="178.0" />
+      <Label layoutX="346.0" layoutY="263.0" prefHeight="17.0" prefWidth="109.0" text="Access Technology" />
+      <ComboBox layoutX="455.0" layoutY="259.0" prefHeight="25.0" prefWidth="169.0" />
+      <Label layoutX="37.0" layoutY="365.0" prefHeight="17.0" prefWidth="200.0" text="Network Measurement Result(NMR)" />
+      <TextField layoutX="246.0" layoutY="361.0" prefHeight="25.0" prefWidth="375.0" />
+      <Button layoutX="258.0" layoutY="428.0" mnemonicParsing="false" text="Update" />
+      <Button layoutX="342.0" layoutY="428.0" mnemonicParsing="false" text="Cancel" />
+   </children>
+</AnchorPane>

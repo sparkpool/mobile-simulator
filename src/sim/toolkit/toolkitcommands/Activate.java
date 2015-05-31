@@ -5,6 +5,11 @@
  */
 package sim.toolkit.toolkitcommands;
 
+import static sim.toolkit.tlvparser.TLVConstants.ACTIVATE_DESCRIPTOR_TAG;
+import static sim.toolkit.tlvparser.TLVConstants.COMMAND_DETAILS_TAG;
+import static sim.toolkit.tlvparser.TLVConstants.DEVICE_IDENTITY_TAG;
+import static sim.toolkit.tlvparser.TLVConstants.TAG_SET_CR;
+
 /**
  *
  * @author user

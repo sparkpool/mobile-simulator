@@ -33,7 +33,7 @@
                      <effect>
                         <ImageInput>
                            <source>
-                              <Image url="file:/E:/MTEGUI/MTEGUI/src/mtegui/poweron.png" />
+                              <Image url="@poweron.png" />
                            </source>
                         </ImageInput>
                      </effect>
@@ -42,7 +42,7 @@
                      <effect>
                         <ImageInput>
                            <source>
-                              <Image url="file:/E:/MTE/MTE/mobile-simulator/src/mtegui/call.png" />
+                              <Image url="@call.png" />
                            </source>
                         </ImageInput>
                      </effect>
@@ -54,7 +54,7 @@
                      <effect>
                         <ImageInput>
                            <source>
-                              <Image url="file:/E:/MTE/MTE/mobile-simulator/src/mtegui/Disconnect.png" />
+                              <Image url="@Disconnect.png" />
                            </source>
                         </ImageInput>
                      </effect>
@@ -67,7 +67,7 @@
                      <effect>
                         <ImageInput>
                            <source>
-                              <Image url="file:/E:/MTE/MTE/mobile-simulator/src/mtegui/home.jpg" />
+                              <Image url="@home.jpg" />
                            </source>
                         </ImageInput>
                      </effect>
@@ -76,7 +76,7 @@
                      <effect>
                         <ImageInput>
                            <source>
-                              <Image url="file:/E:/MTE/MTE/mobile-simulator/src/mtegui/cancel.jpg" />
+                              <Image url="@cancel.jpg" />
                            </source>
                         </ImageInput>
                      </effect>
@@ -110,8 +110,13 @@
                                 <menus>
                                   <Menu mnemonicParsing="false" text="File">
                                     <items>
-                                      <MenuItem mnemonicParsing="false" text="Close" />
+                                      <MenuItem mnemonicParsing="false"  text="CallWindow"  onAction="#handleCallWindowMenuItem"/>
+                                      <MenuItem mnemonicParsing="false"  text="EnvelopeGenerator"  onAction="#handleEnvelopeGeneratorMenuItem"/>
+                                      <MenuItem mnemonicParsing="false"  text="MEConfiguration"   onAction="#handleMEConfigurationMenuItem"/>
+                                      <MenuItem mnemonicParsing="false"  text="NetworkConfiguration"  onAction="#handleNetworkConfigurationMenuItem"/>
+                                      <MenuItem mnemonicParsing="false" text="Close" />                            
                                     </items>
+                               
                                   </Menu>
                                   <Menu mnemonicParsing="false" text="Edit">
                                     <items>
@@ -148,11 +153,11 @@
                                  <content>
                                     <VBox depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="150.0" prefWidth="550.0" snapToPixel="false">
                                        <children>
-                                          <TextArea prefHeight="111.0" prefWidth="516.0" />
+                                          <TextArea fx:id="apduText" prefHeight="111.0" prefWidth="516.0" />
                                           <ToolBar prefHeight="40.0" prefWidth="200.0">
                                             <items>
-                                              <Button mnemonicParsing="false" text="Execute" />
-                                                <Button mnemonicParsing="false" text="Clear APDU Pane" />
+                                              <Button fx:id="executeButton" mnemonicParsing="false" text="Execute" onAction="#handleExecuteButtonAction"/>
+                                                <Button fx:id="clearAPDU" mnemonicParsing="false" text="Clear APDU Pane" onAction="#handleClearAPDUPaneAction"/>
                                             </items>
                                           </ToolBar>
                                        </children>

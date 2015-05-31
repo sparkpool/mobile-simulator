@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="586.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="mtegui.EnvelopeGeneratorController">
+   <children>
+      <Label layoutX="53.0" layoutY="70.0" prefHeight="17.0" prefWidth="122.0" text="Select Envelope Type:" />
+      <ComboBox layoutX="225.0" layoutY="66.0" prefHeight="25.0" prefWidth="297.0" />
+      <Label layoutX="53.0" layoutY="124.0" prefHeight="17.0" prefWidth="122.0" text="Address:" />
+      <TextField layoutX="226.0" layoutY="120.0" prefHeight="25.0" prefWidth="38.0" />
+      <TextField layoutX="271.0" layoutY="120.0" prefHeight="25.0" prefWidth="38.0" />
+      <TextField layoutX="315.0" layoutY="120.0" prefHeight="25.0" prefWidth="207.0" />
+      <Label layoutX="53.0" layoutY="168.0" prefHeight="17.0" prefWidth="122.0" text="SubAddress:" />
+      <TextField layoutX="226.0" layoutY="164.0" prefHeight="25.0" prefWidth="297.0" />
+      <Label layoutX="53.0" layoutY="216.0" prefHeight="17.0" prefWidth="122.0" text="Transaction ID:" />
+      <TextField layoutX="225.0" layoutY="212.0" prefHeight="25.0" prefWidth="155.0" />
+      <Label layoutX="53.0" layoutY="259.0" prefHeight="17.0" prefWidth="122.0" text="Timer ID:" />
+      <ComboBox layoutX="225.0" layoutY="255.0" prefHeight="25.0" prefWidth="297.0" />
+      <Label layoutX="53.0" layoutY="312.0" prefHeight="17.0" prefWidth="122.0" text="Menu ID:" />
+      <TextField layoutX="225.0" layoutY="308.0" prefHeight="25.0" prefWidth="155.0" />
+      <Button layoutX="245.0" layoutY="486.0" mnemonicParsing="false" text="Genrate Envelope" />
+      <TextArea layoutX="53.0" layoutY="369.0" prefHeight="104.0" prefWidth="469.0" />
+   </children>
+</AnchorPane>

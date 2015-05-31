@@ -39,7 +39,7 @@ import sim.toolkit.toolkitcommands.SetupMenu;
  *
  * @author user
  */
-public class CommunicationInitiator implements EventHandler<javafx.scene.input.MouseEvent>,FileSystemConstants, TLVConstants
+public class CommunicationInitiator  implements EventHandler<javafx.scene.input.MouseEvent>,FileSystemConstants,TLVConstants
 {
     CommandParser cmdParser;
     @FXML
