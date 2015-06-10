@@ -44,6 +44,32 @@ public class UserInformation {
     private String TransID;
     private String CallSubAddress;
     
+    
+    
+    
+     private static UserInformation UserInformationInstance;
+   
+   /**
+    * Private constructor of the TLVParser Class
+    */
+   private UserInformation(){}
+   
+   /**
+    * This method used to get the singleton instance of the TLVParser class 
+    * @return 
+    */
+   public static UserInformation getUserInformationInstance()
+   {
+       if(UserInformationInstance == null)
+       {
+           UserInformationInstance = new UserInformation();
+       }
+       return UserInformationInstance;
+   }
+    
+  
+    
+    
     public void  SetTerminalProfile2G( String str){
         TerminalProfile2G = str;
     }
