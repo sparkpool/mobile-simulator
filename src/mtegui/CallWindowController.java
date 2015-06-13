@@ -20,13 +20,6 @@ import javafx.scene.control.TextArea;
  */
 public class CallWindowController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }   
     
     UserInformation userInfo;
     
@@ -42,21 +35,24 @@ public class CallWindowController implements Initializable {
     TextArea SubAddress = new TextArea();
     
     
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }    
     
     
     @FXML
     private void handleCallButtonAction(ActionEvent event) throws IOException{
-        userInfo =  UserInformation.getUserInformationInstance();
-        userInfo.setTON_NPI(TonNpi.getText());
-        userInfo.setCC(CC.getText());
-        userInfo.setTON_NPI(Number.getText());
-        userInfo.setCC(TransID.getText());
-        userInfo.setCC(SubAddress.getText());
-    }
     
+    }
     
     @FXML
     private void handleDisConnectButtonAction(ActionEvent event) throws IOException{
-            
+    
+   
     }
+    
 }
