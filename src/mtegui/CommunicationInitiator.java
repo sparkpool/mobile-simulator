@@ -31,7 +31,13 @@ import sim.toolkit.tlvparser.TLVConstants;
 import sim.toolkit.tlvparser.TLVParser;
 import sim.toolkit.toolkitcommands.BasicCommand;
 import sim.toolkit.toolkitcommands.CommandParser;
+import sim.toolkit.toolkitcommands.MoreTime;
+import sim.toolkit.toolkitcommands.PollInterval;
+import sim.toolkit.toolkitcommands.PollingOff;
 import sim.toolkit.toolkitcommands.ProvideLocalInfo;
+import sim.toolkit.toolkitcommands.Refresh;
+import sim.toolkit.toolkitcommands.SendSS;
+import sim.toolkit.toolkitcommands.SetupCall;
 import sim.toolkit.toolkitcommands.SetupEventList;
 import sim.toolkit.toolkitcommands.SetupMenu;
 
@@ -182,13 +188,53 @@ public class CommunicationInitiator  implements EventHandler<javafx.scene.input.
                 {
                    
                     case TOC_REFRESH:
+                        secondLevel.clear();
+                        secondLevel.add("Proactive Command: Refresh");
+                        Refresh refreshInstance = Refresh.getInstance();
+                        parsedTLV =refreshInstance.getCommandTLVList();
+                        logTreeManipulator("Proactive Command: Refresh : "+tkCmd.getResponseData(), parsedTLV, null);
+                        //System.out.println(SetupMenu.getInstance().getCommandTLVList());
+                        tkCmd.terminalResponse(refreshInstance.prepareTerminalResponse());
+                        secondLevel.clear();
+                        logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), refreshInstance.getTRTLVList(), null);
                         break;
+                        
                     case TOC_MORE_TIME:
+                        secondLevel.clear();
+                        secondLevel.add("Proactive Command: More Time");
+                        MoreTime moreTimeInstance = MoreTime.getInstance();
+                        parsedTLV =moreTimeInstance.getCommandTLVList();
+                        logTreeManipulator("Proactive Command: More Time : "+tkCmd.getResponseData(), parsedTLV, null);
+                        //System.out.println(SetupMenu.getInstance().getCommandTLVList());
+                        tkCmd.terminalResponse(moreTimeInstance.prepareTerminalResponse());
+                        secondLevel.clear();
+                        logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), moreTimeInstance.getTRTLVList(), null);
                         break;
+                        
                     case TOC_POLL_INTERVAL:
+                        secondLevel.clear();
+                        secondLevel.add("Proactive Command: Poll Interval");
+                        PollInterval pollIntervalInstance = PollInterval.getInstance();
+                        parsedTLV =pollIntervalInstance.getCommandTLVList();
+                        logTreeManipulator("Proactive Command: Poll Interval : "+tkCmd.getResponseData(), parsedTLV, null);
+                        //System.out.println(SetupMenu.getInstance().getCommandTLVList());
+                        tkCmd.terminalResponse(pollIntervalInstance.prepareTerminalResponse());
+                        secondLevel.clear();
+                        logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), pollIntervalInstance.getTRTLVList(), null);
                         break;
+                        
                     case TOC_POLLING_OFF:
+                        secondLevel.clear();
+                        secondLevel.add("Proactive Command: Polling Off");
+                        PollingOff pollingOffInstance = PollingOff.getInstance();
+                        parsedTLV =pollingOffInstance.getCommandTLVList();
+                        logTreeManipulator("Proactive Command: Polling Off : "+tkCmd.getResponseData(), parsedTLV, null);
+                        //System.out.println(SetupMenu.getInstance().getCommandTLVList());
+                        tkCmd.terminalResponse(pollingOffInstance.prepareTerminalResponse());
+                        secondLevel.clear();
+                        logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), pollingOffInstance.getTRTLVList(), null);
                         break;
+                        
                     case TOC_SETUP_EVENT_LIST:
                         secondLevel.clear();
                         secondLevel.add("Proactive Command: Setup Event List");
@@ -201,29 +247,60 @@ public class CommunicationInitiator  implements EventHandler<javafx.scene.input.
                         logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), eventLsitInstance.getTRTLVList(), null);
                         break;
                     case TOC_SETUP_CALL:
+                        secondLevel.clear();
+                        secondLevel.add("Proactive Command: Setup Call");
+                        SetupCall setupCallInstance = SetupCall.getInstance();
+                        parsedTLV =setupCallInstance.getCommandTLVList();
+                        logTreeManipulator("Proactive Command: Setup Call : "+tkCmd.getResponseData(), parsedTLV, null);
+                        
+                        //TODO prepare terminal resopnse on the basis of the User Intercation
+                        /**tkCmd.terminalResponse(setupCallInstance.prepareTerminalResponse());
+                        secondLevel.clear();
+                        logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), setupCallInstance.getTRTLVList(), null);*/
                         break;
+                        
                     case TOC_SEND_SS:
+                        secondLevel.clear();
+                        secondLevel.add("Proactive Command: Send Supplementory Service");
+                        SendSS sendSSInstance = SendSS.getInstance();
+                        parsedTLV =sendSSInstance.getCommandTLVList();
+                        logTreeManipulator("Proactive Command: Send Supplementory Service : "+tkCmd.getResponseData(), parsedTLV, null);
+                        //System.out.println(SetupMenu.getInstance().getCommandTLVList());
+                        tkCmd.terminalResponse(sendSSInstance.prepareTerminalResponse());
+                        secondLevel.clear();
+                        logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), sendSSInstance.getTRTLVList(), null);
                         break;
+                        
                     case TOC_SEND_USSD:
                         break;
+                        
                     case TOC_SEND_SMS:
                         break;
+                        
                     case TOC_SEND_DTMF:
                         break;
+                        
                     case TOC_LAUNCH_BROWSER:
                         break;
+                        
                     case TOC_GEO_LOCATION_REQUEST:
                         break;
+                        
                     case TOC_PLAY_TONE:
                         break;
+                        
                     case TOC_DISPLAY_TEXT:
                         break;
+                        
                     case TOC_GET_INKEY:
                         break;
+                        
                     case TOC_GET_INPUT:
                         break;
+                        
                     case TOC_SELECT_ITEM:
                         break;
+                        
                     case TOC_SETUP_MENU:
                         secondLevel.clear();
                         secondLevel.add("Proactive Command: Setup Menu Command");
@@ -242,8 +319,8 @@ public class CommunicationInitiator  implements EventHandler<javafx.scene.input.
                         
                         menuList.setItems(items);
                         rendorScreenComponent(true, true, false, false);
-                        //return;
                         break;
+                        
                     case TOC_PLI:
                         secondLevel.clear();
                         secondLevel.add("Proactive Command: Provide Local Information");
@@ -258,40 +335,58 @@ public class CommunicationInitiator  implements EventHandler<javafx.scene.input.
                         
                     case TOC_TIMER_MANAGEMENT:
                         break;
+                        
                     case TOC_SETUP_IDLE_MODE_TEXT:
                         break;
+                        
                     case TOC_PERFORM_CARD_APDU:
                         break;
+                        
                     case TOC_POWER_ON_CARD:
                         break;
+                        
                     case TOC_POWER_OFF_CARD:
                         break;
+                        
                     case TOC_GET_READER_STATUS:
                         break;
+                        
                     case TOC_RUN_AT_COMMAND:
                         break;
+                        
                     case TOC_LANGUAGE_NOTIFICATION:
                         break;
+                        
                     case TOC_OPEN_CHANNEL:
                         break;
+                        
                     case TOC_CLOSE_CHANNEL:
                         break;
+                        
                     case TOC_RECEIVE_DATA:
                         break;
+                        
                     case TOC_SEND_DATA:
                         break;
+                        
                     case TOC_GET_CHANNEL_STATUS:
                         break;
+                        
                     case TOC_SERVICE_SEARCH:
                         break;
+                        
                     case TOC_GET_SERVICE_INFO:
                         break;
+                        
                     case TOC_DECLARE_SERVICE:
                         break;
+                        
                     case TOC_SET_FRAME:
                         break;
+                        
                     case TOC_GET_FRAME_STATUS:
                         break;
+                        
                     default:
                         return;
                 }
