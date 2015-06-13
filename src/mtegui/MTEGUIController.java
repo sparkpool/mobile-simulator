@@ -184,15 +184,13 @@ public class MTEGUIController implements Initializable {
          
     }
     
-    
     @FXML
-    
     private void handleCallWindowMenuItem(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("CallWindow.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("Call Window");
+        stage.setTitle("Envelope Generator");
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();

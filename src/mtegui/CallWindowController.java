@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
 
 /**
@@ -46,7 +48,37 @@ public class CallWindowController implements Initializable {
     
     @FXML
     private void handleCallButtonAction(ActionEvent event) throws IOException{
+        String tonnpi;
+        int cc;
+        int number;
+        String transID;
+        if(TonNpi.getText().length()==2&& CC.getText().length()==2){
+            try {
+                tonnpi = TonNpi.getText();
+                cc = Integer.parseInt(CC.getText());
+                number = Integer.parseInt(Number.getText());
+                if(TransID.getText().length()%2 == 0 && TransID.getText().matches("-?[0-9a-fA-F]+")){
+                    transID = TransID.getText();
+                }else{
+                    createDialog("Please insert correct Transaction id");
+                }
+            } catch(Exception e){
+                createDialog("CC must be integer of two digit");
+            }
+        }else{
+            createDialog("Ton/NPI and CC must be of two digit");
+        }
+    }
     
+    private void createDialog(String s){
+        
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Error Alert");
+        alert.setContentText(s);
+        alert.show();
+
+        
     }
     
     @FXML
