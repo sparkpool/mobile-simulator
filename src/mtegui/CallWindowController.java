@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -26,15 +27,15 @@ public class CallWindowController implements Initializable {
     UserInformation userInfo;
     
     @FXML
-    TextArea TonNpi = new TextArea();
+    TextField TonNpi = new TextField();
     @FXML
-    TextArea CC = new TextArea();
+    TextField CC = new TextField();
     @FXML
-    TextArea Number = new TextArea();
+    TextField Number = new TextField();
     @FXML
-    TextArea TransID = new TextArea();
+    TextField TransID = new TextField();
     @FXML
-    TextArea SubAddress = new TextArea();
+    TextField SubAddress = new TextField();
     
     
     /**
@@ -68,6 +69,7 @@ public class CallWindowController implements Initializable {
         }else{
             createDialog("Ton/NPI and CC must be of two digit");
         }
+       
     }
     
     private void createDialog(String s){
