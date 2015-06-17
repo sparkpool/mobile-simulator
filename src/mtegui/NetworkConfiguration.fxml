@@ -16,21 +16,21 @@
          </font>
       </Label>
       <Label layoutX="37.0" layoutY="84.0" prefHeight="17.0" prefWidth="161.0" text="Mobile Country  Code(MCC)" />
-      <TextField layoutX="198.0" layoutY="80.0" prefHeight="25.0" prefWidth="119.0" />
+      <TextField fx:id="MCC" layoutX="198.0" layoutY="80.0" prefHeight="25.0" prefWidth="119.0" />
       <Label layoutX="346.0" layoutY="84.0" prefHeight="17.0" prefWidth="161.0" text="Mobile Network  Code(MNC)" />
-      <TextField layoutX="507.0" layoutY="80.0" prefHeight="25.0" prefWidth="119.0" />
+      <TextField fx:id="MNC" layoutX="507.0" layoutY="80.0" prefHeight="25.0" prefWidth="119.0" />
       <Label layoutX="37.0" layoutY="143.0" prefHeight="17.0" prefWidth="149.0" text="Location Area Code (LAC)" />
-      <TextField layoutX="198.0" layoutY="139.0" prefHeight="25.0" prefWidth="119.0" />
+      <TextField fx:id="LAC" layoutX="198.0" layoutY="139.0" prefHeight="25.0" prefWidth="119.0" />
       <Label layoutX="346.0" layoutY="143.0" prefHeight="17.0" prefWidth="44.0" text="Cell ID" />
-      <TextField layoutX="390.0" layoutY="139.0" prefHeight="25.0" prefWidth="119.0" />
-      <TextField layoutX="517.0" layoutY="139.0" prefHeight="25.0" prefWidth="109.0" />
+      <TextField fx:id="CellID1" layoutX="390.0" layoutY="139.0" prefHeight="25.0" prefWidth="119.0" />
+      <TextField fx:id="CellID2" layoutX="517.0" layoutY="139.0" prefHeight="25.0" prefWidth="109.0" />
       <Label layoutX="37.0" layoutY="263.0" prefHeight="17.0" prefWidth="89.0" text="Location Status" />
-      <ComboBox layoutX="136.0" layoutY="259.0" prefHeight="25.0" prefWidth="178.0" />
+      <ComboBox fx:id="LocationStatus" layoutX="136.0" layoutY="259.0" prefHeight="25.0" prefWidth="178.0" />
       <Label layoutX="346.0" layoutY="263.0" prefHeight="17.0" prefWidth="109.0" text="Access Technology" />
-      <ComboBox layoutX="455.0" layoutY="259.0" prefHeight="25.0" prefWidth="169.0" />
+      <ComboBox fx:id="AccessTech" layoutX="455.0" layoutY="259.0" prefHeight="25.0" prefWidth="169.0" />
       <Label layoutX="37.0" layoutY="365.0" prefHeight="17.0" prefWidth="200.0" text="Network Measurement Result(NMR)" />
-      <TextField layoutX="246.0" layoutY="361.0" prefHeight="25.0" prefWidth="375.0" />
-      <Button layoutX="258.0" layoutY="428.0" mnemonicParsing="false" text="Update" />
+      <TextField fx:id="NMR" layoutX="246.0" layoutY="361.0" prefHeight="25.0" prefWidth="375.0" />
+      <Button layoutX="258.0" layoutY="428.0" mnemonicParsing="false" text="Update" onAction="#handleUpdateButtonAction" />
       <Button layoutX="342.0" layoutY="428.0" mnemonicParsing="false" text="Cancel" />
    </children>
 </AnchorPane>

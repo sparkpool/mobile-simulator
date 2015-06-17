@@ -33,8 +33,8 @@ public class UserInformation {
     private String MNC;
     private String LAC;
     private String CellID;
-    private String LocationStatus;
-    private String AccessTechnology;
+    private int LocationStatus;
+    private int AccessTechnology;
     private String NMR;
     
     //Call window Information
@@ -90,22 +90,22 @@ public class UserInformation {
     }
     
     
-    public String  getTerminalProfile2G( String str){
+    public String  getTerminalProfile2G(){
        return  TerminalProfile2G;
     }
-    public String  getTerminalProfile3G( String str){
+    public String  getTerminalProfile3G(){
        return TerminalProfile3G ;
     }
-    public String  getIMEI( String str){
+    public String  getIMEI( ){
         return IMEI ;
     }   
-    public String  getLanguageCode( String str){
+    public String  getLanguageCode( ){
         return LanguageCode ;
     }
-    public String  getPollingDuration( String str){
+    public String  getPollingDuration(){
         return PollingDuration ;
     }
-    public String  getUSSDResponse( String str){
+    public String  getUSSDResponse(){
        return  USSDResponse;
     }
     
@@ -131,22 +131,22 @@ public class UserInformation {
     
     
     
-    public String  getEnvelopeType( String str){
+    public String  getEnvelopeType(){
         return EnvelopeType ;
     }
-    public String  getAddress( String str){
+    public String  getAddress(){
         return Address ;
     }
-    public String  getSubAddress( String str){
+    public String  getSubAddress(){
         return SubAddress ;
     }   
-    public String  getTransactionID( String str){
+    public String  getTransactionID(){
         return TransactionID ;
     }
-    public String  getTimerID( String str){
+    public String  getTimerID(){
         return TimerID ;
     }
-    public String  getMenuID( String str){
+    public String  getMenuID( ){
        return MenuID ;
     }
     
@@ -167,36 +167,36 @@ public class UserInformation {
     public void  setCellID( String str){
         CellID = str;
     }   
-    public void  setLocationStatus( String str){
+    public void  setLocationStatus( int str){
         LocationStatus = str;
     }
-    public void  setAccessTechnology( String str){
+    public void  setAccessTechnology( int str){
         AccessTechnology = str;
     }
     public void  setNMR( String str){
         NMR = str;
     }
     
-    public String  getMCC( String str){
+    public String  getMCC( ){
        return MCC ;
     }
     
-    public String  getMNC( String str){
+    public String  getMNC( ){
        return MNC ;
     }
-    public String  getLAC( String str){
+    public String  getLAC( ){
        return LAC ;
     }
-    public String  getCellID( String str){
+    public String  getCellID(){
        return CellID ;
     }   
-    public String  getLocationStatus( String str){
+    public int  getLocationStatus(){
        return LocationStatus ;
     }
-    public String  getAccessTechnology( String str){
+    public int  getAccessTechnology(){
        return AccessTechnology ;
     }
-    public String  getNMR( String str){
+    public String  getNMR( ){
        return NMR ;
     }
     
@@ -217,19 +217,19 @@ public class UserInformation {
         CallSubAddress = str;
     }
     
-    public String  getTON_NPI( String str){
+    public String  getTON_NPI(){
         return TON_NPI ;
     }
-    public String  getCC( String str){
+    public String  getCC( ){
         return CC ;
     }   
-    public String  getPhNumber( String str){
+    public String  getPhNumber(){
         return PhNumber ;
     }
-    public String  getTransID( String str){
+    public String  getTransID( ){
         return TransID ;
     }
-    public String  getCallSubAddress( String str){
+    public String  getCallSubAddress(){
         return CallSubAddress ;
     }
     
