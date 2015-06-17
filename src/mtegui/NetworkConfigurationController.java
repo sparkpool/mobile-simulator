@@ -14,8 +14,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -39,18 +41,16 @@ public class NetworkConfigurationController implements Initializable {
     @FXML
     TextField CellID2 = new TextField();
     @FXML
-    private ComboBox LocationStatus = new ComboBox();
+    ComboBox LocationStatus = new ComboBox();
     @FXML
-    private ComboBox AccessTech = new ComboBox();
-     @FXML
+    ComboBox AccessTech = new ComboBox();
+    @FXML
     TextField NMR = new TextField();
-
+    @FXML
+    Button closeButton;
     public static final int maxLength = 4;
 
-     
-     
-     
-     
+    
      
     /**
      * Initializes the controller class.
@@ -97,7 +97,7 @@ public class NetworkConfigurationController implements Initializable {
         });        
     }    
     
-     @FXML
+    @FXML
     private void handleUpdateButtonAction(ActionEvent event) throws IOException{
       
         String locstat;
@@ -158,8 +158,14 @@ public class NetworkConfigurationController implements Initializable {
         }else{
             createDialog("MCC must be of 3 digit, MNC must be of 2 or 3 digit");
         }
-       
     }
+    
+    @FXML
+    private void handleCancelButtonAction(ActionEvent event) throws IOException{
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+    }
+    
     
     private void createDialog(String s){
         

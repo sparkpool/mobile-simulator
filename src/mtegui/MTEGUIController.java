@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeView;
@@ -79,7 +80,12 @@ public class MTEGUIController implements Initializable {
     private Button homeButton = new Button();
     @FXML
     private Button exitButton = new Button();
-       
+    @FXML
+    private MenuItem exit;
+    
+    private Parent root;
+    
+    
     private CommunicationInitiator sComm;
     
     private static boolean isPowerOn;
@@ -183,6 +189,11 @@ public class MTEGUIController implements Initializable {
           }
          
     }
+    
+    @FXML
+    private void handleExitMenuItem(ActionEvent event) {
+    }
+    
     
     @FXML
     private void handleCallWindowMenuItem(ActionEvent event) throws IOException{
