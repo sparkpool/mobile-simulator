@@ -30,7 +30,7 @@
       <ComboBox fx:id="AccessTech" layoutX="455.0" layoutY="259.0" prefHeight="25.0" prefWidth="169.0" />
       <Label layoutX="37.0" layoutY="365.0" prefHeight="17.0" prefWidth="200.0" text="Network Measurement Result(NMR)" />
       <TextField fx:id="NMR" layoutX="246.0" layoutY="361.0" prefHeight="25.0" prefWidth="375.0" />
-      <Button layoutX="258.0" layoutY="428.0" mnemonicParsing="false" text="Update" onAction="#handleUpdateButtonAction" />
+      <Button fx:id="updateButton" layoutX="258.0" layoutY="428.0" mnemonicParsing="false" text="Update" onAction="#handleUpdateButtonAction" />
       <Button fx:id="closeButton" layoutX="342.0" layoutY="428.0" mnemonicParsing="false" text="Cancel" onAction="#handleCancelButtonAction"/>
    </children>
 </AnchorPane>

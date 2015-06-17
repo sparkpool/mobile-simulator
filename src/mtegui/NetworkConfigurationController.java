@@ -28,7 +28,7 @@ public class NetworkConfigurationController implements Initializable {
     
     
     
-    UserInformation userInfo;
+    UserInformation userInfo = UserInformation.getUserInformationInstance();
     
     @FXML
     TextField MCC = new TextField();
@@ -48,6 +48,9 @@ public class NetworkConfigurationController implements Initializable {
     TextField NMR = new TextField();
     @FXML
     Button closeButton;
+    @FXML
+    Button updateButton;
+    
     public static final int maxLength = 4;
 
     
@@ -146,6 +149,8 @@ public class NetworkConfigurationController implements Initializable {
                     if(NMR.getText().length()%2 == 0 && NMR.getText().matches("-?[0-9a-fA-F]+")){
                      userInfo.setNMR(NMR.getText());
                      userInfo.setCellID(CellID1.getText()+CellID2.getText());
+                     Stage stage = (Stage) updateButton.getScene().getWindow();
+                     stage.close();
                     }else {
                         createDialog("NMR must be of even digit hex value");
                     }
