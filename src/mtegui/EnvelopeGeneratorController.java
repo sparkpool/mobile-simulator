@@ -7,6 +7,7 @@ package mtegui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
@@ -41,5 +42,15 @@ public class EnvelopeGeneratorController implements Initializable {
         
         TimerID.getItems().addAll("01","02","03","04","05","06","07","08");
     }    
+    
+    @FXML
+    private void handleComboBoxSelection(ActionEvent event){
+        
+    }
+    
+    @FXML
+    private void handleGenEnvelopeButton(ActionEvent event){
+        
+    }
     
 }

@@ -194,7 +194,7 @@ public class CommunicationInitiator  implements EventHandler<javafx.scene.input.
                         parsedTLV =refreshInstance.getCommandTLVList();
                         logTreeManipulator("Proactive Command: Refresh : "+tkCmd.getResponseData(), parsedTLV, null);
                         //System.out.println(SetupMenu.getInstance().getCommandTLVList());
-                        tkCmd.terminalResponse(refreshInstance.prepareTerminalResponse());
+//                        tkCmd.terminalResponse(refreshInstance.prepareTerminalResponse());
                         secondLevel.clear();
                         logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), refreshInstance.getTRTLVList(), null);
                         break;
@@ -206,7 +206,7 @@ public class CommunicationInitiator  implements EventHandler<javafx.scene.input.
                         parsedTLV =moreTimeInstance.getCommandTLVList();
                         logTreeManipulator("Proactive Command: More Time : "+tkCmd.getResponseData(), parsedTLV, null);
                         //System.out.println(SetupMenu.getInstance().getCommandTLVList());
-                        tkCmd.terminalResponse(moreTimeInstance.prepareTerminalResponse());
+  //                      tkCmd.terminalResponse(moreTimeInstance.prepareTerminalResponse());
                         secondLevel.clear();
                         logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), moreTimeInstance.getTRTLVList(), null);
                         break;
@@ -218,7 +218,7 @@ public class CommunicationInitiator  implements EventHandler<javafx.scene.input.
                         parsedTLV =pollIntervalInstance.getCommandTLVList();
                         logTreeManipulator("Proactive Command: Poll Interval : "+tkCmd.getResponseData(), parsedTLV, null);
                         //System.out.println(SetupMenu.getInstance().getCommandTLVList());
-                        tkCmd.terminalResponse(pollIntervalInstance.prepareTerminalResponse());
+    //                    tkCmd.terminalResponse(pollIntervalInstance.prepareTerminalResponse());
                         secondLevel.clear();
                         logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), pollIntervalInstance.getTRTLVList(), null);
                         break;
@@ -230,7 +230,7 @@ public class CommunicationInitiator  implements EventHandler<javafx.scene.input.
                         parsedTLV =pollingOffInstance.getCommandTLVList();
                         logTreeManipulator("Proactive Command: Polling Off : "+tkCmd.getResponseData(), parsedTLV, null);
                         //System.out.println(SetupMenu.getInstance().getCommandTLVList());
-                        tkCmd.terminalResponse(pollingOffInstance.prepareTerminalResponse());
+      //                  tkCmd.terminalResponse(pollingOffInstance.prepareTerminalResponse());
                         secondLevel.clear();
                         logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), pollingOffInstance.getTRTLVList(), null);
                         break;
@@ -266,7 +266,7 @@ public class CommunicationInitiator  implements EventHandler<javafx.scene.input.
                         parsedTLV =sendSSInstance.getCommandTLVList();
                         logTreeManipulator("Proactive Command: Send Supplementory Service : "+tkCmd.getResponseData(), parsedTLV, null);
                         //System.out.println(SetupMenu.getInstance().getCommandTLVList());
-                        tkCmd.terminalResponse(sendSSInstance.prepareTerminalResponse());
+        //                tkCmd.terminalResponse(sendSSInstance.prepareTerminalResponse());
                         secondLevel.clear();
                         logTreeManipulator("Terminal Response : "+tkCmd.getLastExecutedCommand(), sendSSInstance.getTRTLVList(), null);
                         break;
