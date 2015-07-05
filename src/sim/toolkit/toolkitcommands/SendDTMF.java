@@ -97,4 +97,10 @@ public class SendDTMF extends BasicCommand{
     {
         return dtmfStringTLV;
     }
+    
+    public String getDTMFString()
+    {
+       return null; 
+    }
+
 }

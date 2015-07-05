@@ -62,4 +62,5 @@ public class PowerOffCard extends BasicCommand{
             tlvStartOffset+=temp;
         }
     }
+
 }

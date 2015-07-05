@@ -39,7 +39,7 @@ public class LaunchBrowser extends BasicCommand{
         int tlvendOffset = Integer.parseInt(command.substring(2, 4),16)*2;
         if(command.substring(2,4).equals("81"))
         {
-            tlvStartOffset = 6;
+            tlvStartOffset = 6; 
             tlvendOffset = Integer.parseInt(command.substring(4, 6),16)*2;
         }
         commandTLVList.clear();
@@ -48,7 +48,7 @@ public class LaunchBrowser extends BasicCommand{
         int textStringCount =0;
         while(tlvStartOffset<tlvendOffset)
         {
-            tagValue = Byte.parseByte(command.substring(tlvStartOffset, tlvStartOffset+2), 16);
+            tagValue = (byte)Integer.parseInt(command.substring(tlvStartOffset, tlvStartOffset+2), 16);
             
             switch (tagValue) 
             {
@@ -148,9 +148,14 @@ public class LaunchBrowser extends BasicCommand{
         return browserIdentityTLV;
     }
     
-    public String URLTLV()
+    public String getURLTLV()
     {
         return urlTLV;
+    }
+    
+    public String getURL()
+    {
+        return new String(convertToByteArray(urlTLV.substring(4)));
     }
     public String getProxyGatewayTLV()
     {
@@ -175,4 +180,5 @@ public class LaunchBrowser extends BasicCommand{
     {
         return passwordTLV;
     }
+
 }

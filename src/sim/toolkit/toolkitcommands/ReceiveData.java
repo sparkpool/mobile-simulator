@@ -96,4 +96,8 @@ public class ReceiveData extends BasicCommand{
     {
         return channelDataLengthTLV;
     }
+
+    public String prepareTerminalResponse(String channelDataTLV, String channelDataLengthTLV) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

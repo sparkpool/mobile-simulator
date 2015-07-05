@@ -1,7 +1,7 @@
 package sim.toolkit.tlvparser;
 
-public interface TLVConstants {
-	
+public interface TLVConstants 
+{
     public static final byte TAG_SET_CR = (byte) 0x80;
     public static final byte COMMAND_DETAILS_TAG = (byte) 0x01;
     public static final byte DEVICE_IDENTITY_TAG = (byte) 0x02;
@@ -221,7 +221,7 @@ public interface TLVConstants {
         public static final byte TOC_DECLARE_SERVICE = 0x47;
         public static final byte TOC_SET_FRAME = 0x50;
         public static final byte TOC_GET_FRAME_STATUS = 0x51;
-        
+        public static final byte TOC_DISPLAY_MULTIMEDIA_MESSAGE = 0x62;
         
         
         

@@ -28,5 +28,7 @@ public class GeographicalLocation extends BasicCommand{
     public void parseCommand(String command) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }

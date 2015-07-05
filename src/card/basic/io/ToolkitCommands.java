@@ -86,7 +86,7 @@ package card.basic.io;
     public String envelope(String envelopeData)
     {
         Command.CLS = operationMode.equals("2G")?"A0":"00";
-        Command.INS = "10";
+        Command.INS = "C2";
         Command.P1="00";
         Command.P2="00";        
         int trLength = envelopeData.length()/2;

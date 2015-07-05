@@ -94,4 +94,8 @@ public class SetFrames extends BasicCommand{
     {
         return defaultFrameIdentifierTLV;
     }
+
+    public String prepareTerminalResponse() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

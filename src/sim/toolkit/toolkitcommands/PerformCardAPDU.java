@@ -71,4 +71,8 @@ public class PerformCardAPDU extends BasicCommand{
     {
         return cAPDUTLV;
     }
+
+    public String prepareTerminalResponse(String rapduTLV) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

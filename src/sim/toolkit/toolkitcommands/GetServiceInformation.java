@@ -98,4 +98,8 @@ public class GetServiceInformation extends BasicCommand{
     {
         return attributeInfoTLV;
     }
+
+    public String prepareTerminalResponse() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

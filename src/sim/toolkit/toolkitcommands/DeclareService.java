@@ -83,4 +83,8 @@ public class DeclareService extends BasicCommand{
     {
         return uiccTransportTLV;
     }
+
+    public String prepareTerminalResponse() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -5,6 +5,8 @@
  */
 package sim.toolkit.toolkitcommands;
 
+import sim.toolkit.envelope.TLVPreperator;
+
 /**
  *
  * @author user
@@ -116,5 +118,46 @@ public class GetInput extends BasicCommand{
     public String getTextStringTLV()
     {
         return textStringTLV;
+    }
+
+    public String getTextString()
+    {
+        if(textStringTLV.length()>6)
+        {
+            return new String(convertToByteArray(textStringTLV.substring(6)));
+        }
+        else
+        {
+            return "";
+        }
+    }
+    
+    public String prepareTerminalResponse(String inputText, String dcs, int tr) 
+    {
+        StringBuilder terminalResponse = new StringBuilder();
+        trTLvList.clear();
+        terminalResponse.append(commandDetailTLV);
+        trTLvList.add(commandDetailTLV);
+        trTLvList.add("8202"+deviceIdentitiesTLV.substring(6, 8)+deviceIdentitiesTLV.substring(4, 6));
+        terminalResponse.append(trTLvList.get(1));
+        switch(tr)
+        {
+            case 0:
+                trTLvList.add("830100");
+                terminalResponse.append(trTLvList.get(2));
+                
+                trTLvList.add(TLVPreperator.getInstance().prepareTextStringTLV(TEXT_STRING_TAG, dcs, inputText));
+                terminalResponse.append(trTLvList.get(3));
+                break;
+            case 10:
+                trTLvList.add("830110");
+                terminalResponse.append(trTLvList.get(2));
+                break;
+            case 11:
+                trTLvList.add("830111");
+                terminalResponse.append(trTLvList.get(2));
+                break;
+        }
+        return terminalResponse.toString();
     }
 }

@@ -95,5 +95,9 @@ public class RunATCommand extends BasicCommand{
     {
         return atCommandTLV;
     }
+
+    public String prepareTerminalResponse(String atResponseTLV) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

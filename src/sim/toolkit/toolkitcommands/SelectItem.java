@@ -6,6 +6,8 @@
 package sim.toolkit.toolkitcommands;
 
 import java.util.ArrayList;
+import java.util.List;
+import sim.toolkit.envelope.TLVPreperator;
 import static sim.toolkit.tlvparser.TLVConstants.COMMAND_DETAILS_TAG;
 import static sim.toolkit.tlvparser.TLVConstants.DEVICE_IDENTITY_TAG;
 import static sim.toolkit.tlvparser.TLVConstants.FRAME_IDENTIFIER_TAG;
@@ -150,11 +152,7 @@ public class SelectItem extends BasicCommand{
         return itemIconIdentiferListTLV;
     }
     
-    public ArrayList<String> getMenuItemListTLV()
-    {
-        return menuItemListTLV;
-    }
-    
+   
     public String getItemTextAttributeTLV()
     {
         return itemsTextAttributeTLV;
@@ -163,5 +161,46 @@ public class SelectItem extends BasicCommand{
     public String getItemIdentiferTLV()
     {
         return itemIdentifierTLV;
+    }
+
+    public String getItemText(String itemTLV)
+    {
+        return new String(convertToByteArray(itemTLV.substring(6)));
+    }
+    
+
+    public List<String> getMenuItemList()
+    {
+        return menuItemListTLV;
+    }
+    
+    
+    public String prepareTerminalResponse(String selecteItemIndex, int tr) 
+    {
+        StringBuilder terminalResponse = new StringBuilder();
+        trTLvList.clear();
+        terminalResponse.append(commandDetailTLV);
+        trTLvList.add(commandDetailTLV);
+        trTLvList.add("8202"+deviceIdentitiesTLV.substring(6, 8)+deviceIdentitiesTLV.substring(4, 6));
+        terminalResponse.append(trTLvList.get(1));
+        switch(tr)
+        {
+            case 0:
+                trTLvList.add("830100");
+                terminalResponse.append(trTLvList.get(2));
+                
+                trTLvList.add(TLVPreperator.getInstance().prepareItemIdTLV(ITEM_IDENTIFIER_TAG, selecteItemIndex));
+                terminalResponse.append(trTLvList.get(3));
+                break;
+            case 10:
+                trTLvList.add("830110");
+                terminalResponse.append(trTLvList.get(2));
+                break;
+            case 11:
+                trTLvList.add("830111");
+                terminalResponse.append(trTLvList.get(2));
+                break;
+        }
+        return terminalResponse.toString();
     }
 }

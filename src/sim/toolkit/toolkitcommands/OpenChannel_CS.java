@@ -9,9 +9,10 @@ package sim.toolkit.toolkitcommands;
  *
  * @author user
  */
-public class OpenChannel_CS extends BasicCommand{
+public class OpenChannel_CS extends BasicCommand
+{
     
-      private static OpenChannel_CS singletonInstance;
+    private static OpenChannel_CS singletonInstance;
     private String addressTLV;
     private String subAddressTLV;
     private String duration1TLV;
@@ -38,7 +39,7 @@ public class OpenChannel_CS extends BasicCommand{
     @Override
     public void parseCommand(String command) {
    
-         //check the Length of the BER TLV
+        //check the Length of the BER TLV
         int tlvStartOffset =4;
         int tlvendOffset = Integer.parseInt(command.substring(2, 4),16)*2;
         if(command.substring(2,4).equals("81"))

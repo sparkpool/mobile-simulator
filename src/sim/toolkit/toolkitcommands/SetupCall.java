@@ -187,4 +187,24 @@ public class SetupCall extends BasicCommand{
     {
         return subAddressTLV;
     }
+
+    public String getDailedString() 
+    {
+        int startOffset = 4;
+        StringBuilder dialledString = new StringBuilder();
+        if (addressTLV.length() > 4) {
+            if (addressTLV.substring(2, 4).equals("81")) 
+            {
+                startOffset = 6;
+            }
+        }
+        int len= addressTLV.length()-startOffset-2;
+        for(int i =0; i<len;i+=2)
+        {
+           dialledString.append(addressTLV.charAt(startOffset+i+1));
+           dialledString.append(addressTLV.charAt(startOffset+i));
+        }
+        return dialledString.toString();
+    }
+
 }

@@ -5,6 +5,8 @@
  */
 package sim.toolkit.toolkitcommands;
 
+import java.util.List;
+
 /**
  *
  * @author user
@@ -63,7 +65,7 @@ public class ProvideLocalInfo extends BasicCommand{
         }
     }
     
-    public String prepareTerminalResponse()
+    public String prepareTerminalResponse(List<String> flag)
     {
         StringBuilder terminalResponse = new StringBuilder();
         trTLvList.clear();

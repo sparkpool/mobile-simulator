@@ -119,4 +119,10 @@ public class DisplayText extends BasicCommand{
     {
         return textStringTLV;
     }
+
+    public String getTextString() 
+    {
+        return new String(convertToByteArray(textStringTLV.substring(6)));
+    }
+
 }

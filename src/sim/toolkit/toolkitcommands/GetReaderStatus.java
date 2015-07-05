@@ -62,4 +62,8 @@ public class GetReaderStatus extends BasicCommand{
             tlvStartOffset+=temp;
         }
     }
+
+    public String prepareTerminalResponse(String cardReaderStatusTLV,String cardReaderIdentifier) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

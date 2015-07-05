@@ -62,4 +62,8 @@ public class PowerOnCard extends BasicCommand {
             tlvStartOffset+=temp;
         }
     }
+
+    public String prepareTerminalResponse(String cardAtr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

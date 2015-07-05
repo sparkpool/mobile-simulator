@@ -87,7 +87,7 @@ public class TLVPreperator {
     
     public String prepareItemIdTLV(byte tag, String itemId)
     {
-        return null;
+        return convertTagToString(tag)+"01"+itemId;
     }
     
     public String prepareResultTag(String tag, String result, String additionalInfo)
@@ -155,9 +155,15 @@ public class TLVPreperator {
         return null;
     }
     
-    public String prepareTextStringTLV(String tag, String dcs, String textString)
+    public String prepareTextStringTLV(byte tag, String dcs, String textString)
     {
-        return null;
+        StringBuilder hexString = new StringBuilder();
+        for(int i=0;i<textString.length();i++)
+        {
+            hexString.append(String.format("%x", (byte)textString.charAt(i)));
+        }
+        
+        return convertTagToString(tag)+getTLVLength((textString.length()+1))+dcs+hexString.toString();        
     }
     
     public String prepareAccessTechTLV(byte tag, String accessTech)

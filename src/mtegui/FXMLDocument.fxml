@@ -38,7 +38,7 @@
                         </ImageInput>
                      </effect>
                   </Button>
-                  <Button layoutX="10.0" layoutY="344.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="31.0">
+                  <Button fx:id="callButton" layoutX="10.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="31.0">
                      <effect>
                         <ImageInput>
                            <source>
@@ -50,7 +50,7 @@
                         <Insets right="1.0" />
                      </opaqueInsets>
                   </Button>
-                  <Button layoutX="211.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0">
+                  <Button fx:id="exitButton" layoutX="211.0" layoutY="341.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="38.0">
                      <effect>
                         <ImageInput>
                            <source>
@@ -63,16 +63,16 @@
                      </opaqueInsets>
                   </Button>
                   <Separator layoutX="7.0" layoutY="342.0" prefHeight="2.0" prefWidth="238.0" />
-                  <Button layoutX="146.0" layoutY="344.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="31.0">
+                  <Button fx:id="homeButton" layoutX="146.0" layoutY="344.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="32.0" prefWidth="31.0">
                      <effect>
                         <ImageInput>
                            <source>
                               <Image url="@home.jpg" />
                            </source>
-                        </ImageInput>
+                         </ImageInput>
                      </effect>
                   </Button>
-                  <Button layoutX="76.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="38.0">
+                  <Button fx:id="cancelButton" layoutX="76.0" layoutY="343.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="38.0">
                      <effect>
                         <ImageInput>
                            <source>
@@ -84,15 +84,15 @@
                         <Insets right="1.0" />
                      </opaqueInsets>
                   </Button>
-                  <PasswordField fx:id="passwordField" layoutX="51.0" layoutY="267.0" />
-                  <TextArea fx:id="inputText" layoutX="14.0" layoutY="89.0" prefHeight="170.0" prefWidth="223.0" wrapText="true">
+                  <PasswordField fx:id="passwordField" layoutX="49.0" layoutY="210.0" />
+                  <TextArea fx:id="inputText" layoutX="18.0" layoutY="89.0" prefHeight="111.0" prefWidth="212.0" wrapText="true">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextArea>
                   <Label fx:id="appList" layoutX="58.0" layoutY="50.0" prefHeight="17.0" prefWidth="130.0" text="Application List" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="12.0" />
                      </font>
                      <effect>
                         <InnerShadow />
@@ -110,10 +110,10 @@
                                 <menus>
                                   <Menu mnemonicParsing="false" text="File">
                                     <items>
-                                      <MenuItem mnemonicParsing="false"  text="CallWindow"  onAction="#handleCallWindowMenuItem"/>
-                                      <MenuItem mnemonicParsing="false"  text="EnvelopeGenerator"  onAction="#handleEnvelopeGeneratorMenuItem"/>
-                                      <MenuItem mnemonicParsing="false"  text="MEConfiguration"   onAction="#handleMEConfigurationMenuItem"/>
-                                      <MenuItem mnemonicParsing="false"  text="NetworkConfiguration"  onAction="#handleNetworkConfigurationMenuItem"/>
+                                      <MenuItem mnemonicParsing="false" onAction="#handleCallWindowMenuItem" text="CallWindow" />
+                                      <MenuItem mnemonicParsing="false" onAction="#handleEnvelopeGeneratorMenuItem" text="EnvelopeGenerator" />
+                                      <MenuItem mnemonicParsing="false" onAction="#handleMEConfigurationMenuItem" text="MEConfiguration" />
+                                      <MenuItem mnemonicParsing="false" onAction="#handleNetworkConfigurationMenuItem" text="NetworkConfiguration" />
                                       <MenuItem mnemonicParsing="false" text="Close" />                            
                                     </items>
                                
@@ -156,8 +156,8 @@
                                           <TextArea fx:id="apduText" prefHeight="111.0" prefWidth="516.0" />
                                           <ToolBar prefHeight="40.0" prefWidth="200.0">
                                             <items>
-                                              <Button fx:id="executeButton" mnemonicParsing="false" text="Execute" onAction="#handleExecuteButtonAction"/>
-                                                <Button fx:id="clearAPDU" mnemonicParsing="false" text="Clear APDU Pane" onAction="#handleClearAPDUPaneAction"/>
+                                              <Button fx:id="executeButton" mnemonicParsing="false" onAction="#handleExecuteButtonAction" text="Execute" />
+                                                <Button fx:id="clearAPDU" mnemonicParsing="false" onAction="#handleClearAPDUPaneAction" text="Clear APDU Pane" />
                                             </items>
                                           </ToolBar>
                                        </children>

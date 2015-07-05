@@ -45,7 +45,7 @@ public class EnvelopePreparator implements TLVConstants{
         {
             envelope.append(tlvPrep.prepareHelpRequestTLV(HELP_REQUEST_TAG));
         }
-        int len = envelope.length();
+        int len = envelope.length()/2;
         String temp = Integer.toHexString(len).length()== 1? 0+Integer.toHexString(len).toUpperCase():Integer.toHexString(len).toUpperCase();
         return BER_TAG_MENUSELECTION+temp+envelope;
     }
@@ -311,5 +311,10 @@ public class EnvelopePreparator implements TLVConstants{
         int len = envelope.length();
         String temp = Integer.toHexString(len).length()== 1? 0+Integer.toHexString(len).toUpperCase():Integer.toHexString(len).toUpperCase();
         return BER_TAG_EVENT_DOWNLOAD + temp + envelope;
+    }
+    
+    public List<String> getEnvTLVList()
+    {
+        return envelopeTLVList;
     }
 }

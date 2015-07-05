@@ -73,16 +73,5 @@ public class SetupEventList extends BasicCommand {
         return eventListTLV;
     }
     
-    public String prepareTerminalResponse()
-    {
-        StringBuilder terminalResponse = new StringBuilder();
-        trTLvList.clear();
-        terminalResponse.append(commandDetailTLV);
-        trTLvList.add(commandDetailTLV);
-        trTLvList.add("8202"+deviceIdentitiesTLV.substring(6, 8)+deviceIdentitiesTLV.substring(4, 6));
-        terminalResponse.append(trTLvList.get(1));
-        trTLvList.add("830100");
-        terminalResponse.append(trTLvList.get(2)); 
-        return terminalResponse.toString();
-    }
+    
 }

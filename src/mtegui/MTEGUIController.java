@@ -73,10 +73,13 @@ public class MTEGUIController implements Initializable {
     
     @FXML
     private Button cancelButton = new Button();
+    
     @FXML
     private Button callButton = new Button();
+    
     @FXML
     private Button homeButton = new Button();
+    
     @FXML
     private Button exitButton = new Button();
        
@@ -103,19 +106,20 @@ public class MTEGUIController implements Initializable {
         }
         else if(event.getSource() == homeButton)
         {
-            
+            System.out.println("Button ation home");
+            sComm.handleHomeButtonAction();
         }
         else if(event.getSource() == cancelButton)
         {
-            
+            sComm.handleCancelButtonAction();
         }
         else if(event.getSource() == exitButton)
         {
-            
+            sComm.handleExitButtonAction();
         }
         else if(event.getSource() == callButton)
         {
-            
+            sComm.handleCallButtonAction();
         }
     }
     

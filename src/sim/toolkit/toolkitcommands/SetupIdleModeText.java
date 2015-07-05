@@ -93,4 +93,13 @@ public class SetupIdleModeText extends BasicCommand{
         return textStringTLV;
     }
     
+    public String getTextString() 
+    {
+        return new String(convertToByteArray(textStringTLV.substring(6)));
+    }
+    
+    public String prepareTerminalResponse() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

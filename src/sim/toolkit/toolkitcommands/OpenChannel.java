@@ -5,10 +5,79 @@
  */
 package sim.toolkit.toolkitcommands;
 
+import static sim.toolkit.tlvparser.TLVConstants.COMMAND_DETAILS_TAG;
+import static sim.toolkit.tlvparser.TLVConstants.DEVICE_IDENTITY_TAG;
+import static sim.toolkit.tlvparser.TLVConstants.TAG_SET_CR;
+
 /**
  *
  * @author user
  */
-public class OpenChannel {
+public class OpenChannel extends BasicCommand
+{
+    private static OpenChannel singletonInstance;
     
+    private OpenChannel(){}
+    
+    public static OpenChannel getInstance()
+    {
+        if(singletonInstance == null)
+        {
+            singletonInstance = new OpenChannel();
+        }
+        return singletonInstance;
+    } 
+    
+    public void parseCommand(String command)
+    {
+       
+        //check the Length of the BER TLV
+        int tlvStartOffset =4;
+        int tlvendOffset = Integer.parseInt(command.substring(2, 4),16)*2;
+        if(command.substring(2,4).equals("81"))
+        {
+            tlvStartOffset = 6;
+            tlvendOffset = Integer.parseInt(command.substring(4, 6),16)*2;
+        }
+        commandTLVList.clear();
+        byte tagValue;
+        int temp=0;
+        tagValue = Byte.parseByte(command.substring(tlvStartOffset, tlvStartOffset+2), 16);
+        if(tagValue == COMMAND_DETAILS_TAG || tagValue == (byte) (COMMAND_DETAILS_TAG | TAG_SET_CR))    
+        {
+            temp = getDataLength(command, tlvStartOffset);
+            commandDetailTLV = command.substring(tlvStartOffset, tlvStartOffset + temp);
+            commandTLVList.add(commandDetailTLV);
+        }
+        
+           
+//        while(tlvStartOffset<tlvendOffset)
+//        {
+//            tagValue = Byte.parseByte(command.substring(tlvStartOffset, tlvStartOffset+2), 16);
+//            
+//            switch (tagValue) 
+//            {
+//                case COMMAND_DETAILS_TAG:case (byte) (COMMAND_DETAILS_TAG | TAG_SET_CR):
+//                    temp = getDataLength(command,tlvStartOffset);
+//                    commandDetailTLV = command.substring(tlvStartOffset, tlvStartOffset+temp);
+//                    commandTLVList.add(commandDetailTLV);
+//                    break;
+//                    
+//                case DEVICE_IDENTITY_TAG: case (byte)(DEVICE_IDENTITY_TAG|TAG_SET_CR):
+//                    temp = getDataLength(command,tlvStartOffset);
+//                    deviceIdentitiesTLV = command.substring(tlvStartOffset, tlvStartOffset+temp);
+//                    commandTLVList.add(deviceIdentitiesTLV);
+//                    break;
+//                    
+//                default:
+//                    //Provide mechanizm to handle the invalid command case
+//                    return;
+//            }
+//            tlvStartOffset+=temp;
+//        }
+    }
+
+    public String prepareTerminalResponse(String openChannelResponse) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

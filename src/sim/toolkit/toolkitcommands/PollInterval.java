@@ -81,4 +81,5 @@ public class PollInterval extends BasicCommand{
     {
         return durationTLV;
     }
+
 }
